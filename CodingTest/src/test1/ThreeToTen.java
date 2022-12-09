@@ -10,6 +10,7 @@ public class ThreeToTen {
 	// push만 한다
 	// branch 연습
 	// branch 연습 두번째
+	// branch 세번째 연습
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Integer> toThreeReverse = findThree(125);
