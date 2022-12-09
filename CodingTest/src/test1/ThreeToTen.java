@@ -8,6 +8,7 @@ public class ThreeToTen {
 	//commit한다
 	// web에서 commit한다
 	// push만 한다
+	// branch 연습
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Integer> toThreeReverse = findThree(125);
