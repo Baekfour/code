@@ -6,4 +6,5 @@
  *
  */
 module CodingTest {
+	requires java.base;
 }
