@@ -1,30 +1,42 @@
 package test1;
 
-import java.util.Arrays;
+import java.util.HashMap;
 
 public class ThreeToTenSec {
 
-    public int solution(int q, int[] a) {
-        // Modulo constant
-        final int MOD = 998244353;
+    public static int solution(String s) {
+        // Create a HashMap to store the character occurrences in the string
+        HashMap<Character, Integer> occurrences = new HashMap<>();
 
-        // Count the number of times each element of a appears
-        int[] elementCounts = new int[a.length];
-        for (int i = 0; i < a.length; i++) {
-            elementCounts[a[i]]++;
-        }
+        // Store the length of the string
+        int n = s.length();
 
-        // Calculate the number of queries needed to make a all zeros
-        // by multiplying the number of occurrences of each element in a
-        long queries = 1;
-        for (int i = 0; i < a.length; i++) {
-            if (elementCounts[i] > 0) {
-                queries = queries * elementCounts[i] % MOD;
+        // Initialize the beauty of all substrings to 0
+        int beauty = 0;
+
+        // Iterate over the string from left to right
+        for (int i = 0; i < n; i++) {
+            // Get the current character
+            char c = s.charAt(i);
+
+            // If the character is not in the HashMap, add it with a value of 1
+            if (!occurrences.containsKey(c)) {
+                occurrences.put(c, 1);
+            }
+            // Otherwise, increment the value of the character in the HashMap
+            else {
+                occurrences.put(c, occurrences.get(c) + 1);
+            }
+
+            // If there is more than one character in the HashMap, add the value of j - i
+            // to the beauty of all substrings
+            if (occurrences.size() > 1) {
+                beauty += i + 1;
             }
         }
 
-        // Return the result modulo the modulo constant
-        return (int) (queries * q % MOD);
+        // Return the beauty of all substrings
+        return beauty;
     }
 
 }
